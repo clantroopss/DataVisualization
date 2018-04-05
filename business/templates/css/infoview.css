@@ -1,0 +1,168 @@
+#info-view {
+	position: fixed;
+	right: 0px;
+	top: 50px;
+	width: 350px;
+	height: 0px;
+	max-height: 580px;
+	background-color: rgba(246, 246, 246, 0.94);
+	z-index: 2;
+    overflow: hidden;
+}
+
+#info-view-toggle-button-text {
+	position: fixed;
+	right: 0px;
+	padding: 10px 20px 10px 10px;
+	height: 50px;
+	font-size: 18px;
+	color: rgb(100,100,100);
+	z-index: 2;
+	text-decoration: none;
+	display: none;
+}
+
+#info-view-toggle-button-text div {
+	float: left;
+	padding-right: 20px;
+}
+
+#info-view #individual-info-view {
+	position: absolute;
+	width: inherit;
+	min-height: 550px;
+	height: 100%;
+	background-color: none;
+	z-index: 3;
+	display: block;
+}
+
+#info-view #individual-info-view #scrollable {
+	max-height: 425px;
+}
+
+#info-view #individual-info-view #rating-section #name {
+	position: relative;
+	padding: 10px;
+	font-family: "Lucida Sans Unicode";
+    font-size: 18px;
+    text-decoration: none;
+    width: 300px;
+    display: block;
+    color: rgb(100,100,100);
+    text-shadow: 2px 2px #EAEAEA;
+}
+
+#info-view #individual-info-view #rating-section #open {
+	position: absolute;
+	top: 0px;
+	padding-top: 5px;
+    left: 300px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    transform: rotate(7deg);
+}
+
+#info-view #individual-info-view #rating-section #rating {
+	position: relative;
+	padding: 10px;
+	width: inherit;
+	height: 50px;
+    font-size: 15px;
+    display: block;
+    background-color: none;
+    color: #666;
+}
+
+#info-view #individual-info-view #rating-section #rating a {
+	text-decoration: none;
+	hover: none;
+	color: #666;
+}
+
+#info-view #individual-info-view #rating-section #star-rating {	
+	margin: -2px 2px 0px 0px;
+	width:24px;
+	height:24px;
+	float: left;
+}
+
+#info-view #individual-info-view #rating-section #address {
+	position: relative;
+	padding: 10px;
+	width: inherit;
+	height: 50px;
+    font-size: 15px;
+    display: block;
+    color: #666;
+}
+
+#info-view #individual-info-view #rating-section #hours {
+	position: relative;
+	padding: 10px 0px 0px 10px;
+	width: inherit;
+    font-size: 15px;
+    display: block;
+    color: #666;
+}
+
+#info-view #individual-info-view #rating-section #hours table {
+	position: relative;
+	left: 15px;
+	padding: 10px 0px 0px 10px;
+	width: inherit;
+    font-size: 14px;
+    display: block;
+    color: #666;
+}
+
+#info-view #individual-info-view #rating-section table .left {
+    font-weight: bold;
+}
+
+#info-view #individual-info-view #rating-section table .right {
+    font-size: 14px;
+}
+
+#info-view #individual-info-view #rating-section #attributes {
+	position: relative;
+	padding: 10px 0px 0px 10px;	
+	width: inherit;
+    font-size: 15px;
+    display: block;
+    color: #666;
+}
+
+#info-view #individual-info-view #rating-section #attributes table {
+	position: relative;
+	padding: 10px 0px 0px 10px;
+	left: 15px;
+	width: inherit;
+    font-size: 14px;
+    display: block;
+    color: #666;
+}
+
+#info-view #clustered-info-view {
+	position: absolute;
+	width: inherit;
+	height: 100%;
+	background-color: none;
+	z-index: 3;
+	display: block;
+	overflow-y: scroll;
+}
+
+/* 
+#info-view #clustered-info-view #name {
+	padding: 10px 10px 0px 10px;
+	font-family: "Lucida Sans Unicode";
+    font-size: 25px;
+    text-decoration: none;
+    width: inherit;
+    display: block;
+    color: rgb(100,100,100);
+    text-shadow: 2px 2px #EAEAEA;
+}
+ */

@@ -1,0 +1,117 @@
+#clustered-info-view #price-distribution-barchart-heading {
+	position: absolute;
+	top: 9px;
+	left: 10px;
+	padding-left: 5px;
+	width: 330px;
+	height: 20px;
+	background-color: none;
+}
+
+#clustered-info-view #cluster-ratings-distribution-chart-heading {
+	position: absolute;
+	top: 295px;
+	left: 10px;
+	padding-left: 5px;
+	width: 330px;
+	height: 20px;
+	background-color: none;
+}
+
+#clustered-info-view #price-distribution-barchart-heading a,
+#clustered-info-view #price-distribution-barchart-heading a:hover,
+#clustered-info-view #cluster-ratings-distribution-chart-heading a,
+#clustered-info-view #cluster-ratings-distribution-chart-heading a:hover {
+	text-decoration: none;
+}
+
+#clustered-info-view .heading-selected {
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 0px;
+	border-radius: 10px 10px 0px 0px ;
+	background-color: rgba(246, 246, 246, 0.94);
+	z-index: 5;
+}
+
+#clustered-info-view .heading-unselected {
+	border: none;
+	border-radius: 4px;
+	box-shadow: none;
+	background-color: none;
+	z-index: 3;
+}
+
+#clustered-info-view #price-distribution-barchart {
+	position: absolute;
+	top: 28px;
+	left: 10px;
+	width: 330px;
+	height: 225px;
+	padding: 0px 5px 0px 5px ;
+	background-color: rgba(246, 246, 246, 0.94);
+	z-index: 4;
+	border: 1px solid #ccc;
+	border-radius: 0px 00px 10px 10px;
+	box-shadow: 2px 2px 5px #888;
+}
+
+#clustered-info-view #cluster-ratings-distribution-chart {
+	position: absolute;
+	top: 314px;
+	left: 10px;
+	width: 330px;
+	height: 225px;
+	padding: 0px 5px 0px 5px ;
+	background-color: rgba(246, 246, 246, 0.94);
+	z-index: 4;
+	border: 1px solid #ccc;
+	border-radius: 0px 00px 10px 10px;
+	box-shadow: 2px 2px 5px #888;
+}
+
+#clustered-info-view #rating-range-left {
+	position: absolute;
+	top: 550px;
+	width: 60px;
+	height: 15px;
+}
+
+#clustered-info-view #rating-range-slider {
+	position: absolute;
+	top: 550px;
+	left: 80px;
+	width: 195px;
+}
+
+#clustered-info-view #rating-range-right {
+	position: absolute;
+	top: 550px;
+	left: 290px;
+	width: 60px;
+	height: 15px;
+}
+
+#clustered-info-view #price-range-slider {
+	position: absolute;
+	top: 270px;
+	left: 70px;
+	width: 215px;
+}
+
+#clustered-info-view #price-range-left {
+	position: absolute;
+	top: 265px;
+	left: 15px;
+	width: 20px;
+	height: 20px;
+}
+
+#clustered-info-view #price-range-right {
+	position: absolute;
+	top: 265px;
+	left: 315px;
+	width: 20px;
+	height: 20px;
+}

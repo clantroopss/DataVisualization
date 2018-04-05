@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Interactive visualization of Yelp Dataset">
+		<meta name="author" content="Siddarth Ravishankar">
+		
+        <title>Bhavik Mer - 19304976</title>
+        
+        {% load staticfiles %}
+		<link rel="stylesheet" href="{% static "css/home.css" %}" />
+		<link rel="stylesheet" href="{% static "css/menu.css" %}" />
+		<link rel="stylesheet" href="{% static "css/infoview.css" %}" />
+		<link rel="stylesheet" href="{% static "css/reviewsview.css" %}" />
+		<link rel="stylesheet" href="{% static "css/clusterstastics.css" %}" />
+		
+		<link rel="stylesheet" href="{% static "css/leaflet.css" %}" />
+		<link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}" />		
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+		
+    </head>
+    <body>
+    
+		<div class="header-bar">
+			<a href="#" id="menu-toggle" onclick="toggleMenu(); return false;"><img src = "{% static "images/menu.png" %}"/></a>
+			<div class="header-title"><a href="#" onclick="return false;">Data Visualization - Assignment 4</a></div>
+			<a href="#" onclick="toggleInfoView(); return false;" id="info-view-toggle-button-text"><div></div><span class="glyphicon glyphicon-collapse-down"></span></a>
+		</div>
+		
+		<div id="menu">
+			<div id="filter-businesses-button"><a href="#" onclick="toggleFilterMenu(); return false;">Select Categories <span id="icon-for-filter-expand" class="glyphicon glyphicon-collapse-down"></span></a></div>
+			<div id="filter-menu-container">
+				<table id="filter-menu-table">
+				</table>
+			</div>
+			<div id="compare-businesses-button"><a href="#" onclick="toggleCompareBusinessTable(); return false;">Compare Businesses <span id="icon-for-compare-business-expand" class="glyphicon glyphicon-collapse-down"></span></a></div>
+			<div id="compare-businesses-container">				
+				<br><div id="heading">Compare upto 10 businesses by clicking them</div>
+				<div id="compare-businesses-table-div">
+				<table id="compare-businesses-table">
+				</table>
+				</div>
+				<div style="position: absolute; left: 10px; margin-top: 10px; padding-left: 10px; float: left; background: rgb(227, 227, 227); border-radius: 5px; width: 100px;">
+					<a href="#" onclick="compareBusinesses(); return false;">Compare <img height=15px width=15px src="static/images/compare.png"/></a>
+				</div>
+				<div style="position: absolute; right: 15px; margin-top: 10px; padding-left: 15px; background: rgb(227, 227, 227); border-radius: 5px; width: 100px;">
+					<a href="#" onclick="removeAllCompareBusinesses(); return false;">Clear all <img height=15px width=15px src="static/images/removeAll.png"/></a>
+				</div>
+			</div>
+		</div>
+    
+		<div class = "map-container">
+    		<div id="map"></div>
+			<div id="info-view">
+				<div id="individual-info-view">
+					<div id="rating-section">
+						<div id="name"></div>
+						<div id="open"><img width=40 height=40/></div>
+						<div id="rating"></div>
+						<div id="address"></div>
+						<div id="scrollable">
+						<div id="hours"></div>
+						<div id="attributes"></div>
+						</div>
+					</div>
+				</div>
+				<div id="clustered-info-view">
+						<img id="price-range-left" src="static/images/pricerange1.png"/>
+						<div id="price-range-slider"></div>
+						<img id="price-range-right" src="static/images/pricerange4.png"/>					
+						<a href="#" onclick="return false;"><div id="price-distribution-barchart-heading" class="heading-selected">Price range Distribution</div></a>
+						<div id="price-distribution-barchart"></div>
+						<a href="#" onclick="return false;"><div id="cluster-ratings-distribution-chart-heading" class="heading-selected">Ratings Distribution</div></a>
+						<div id="cluster-ratings-distribution-chart"></div>
+						<div id="rating-range-left">
+							<span id="star-rating-1" style="background: url('static/images/star_full.png'); background-size: 100%; height: 12px; width: 12px; position: absolute;"></span>
+							<span id="star-rating-2" style="background: url('static/images/star_zero.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 12px;"></span>
+							<span id="star-rating-3" style="background: url('static/images/star_zero.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 24px;"></span>
+							<span id="star-rating-4" style="background: url('static/images/star_zero.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 36px;"></span>
+							<span id="star-rating-5" style="background: url('static/images/star_zero.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 48px;"></span>
+						</div>
+						<div id="rating-range-slider"></div>
+						<div id="rating-range-right">
+							<span id="star-rating-1" style="background: url('static/images/star_full.png'); background-size: 100%; height: 12px; width: 12px; position: absolute;"></span>
+							<span id="star-rating-2" style="background: url('static/images/star_full.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 12px;"></span>
+							<span id="star-rating-3" style="background: url('static/images/star_full.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 24px;"></span>
+							<span id="star-rating-4" style="background: url('static/images/star_full.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 36px;"></span>
+							<span id="star-rating-5" style="background: url('static/images/star_full.png'); background-size: 100%; height: 12px; width: 12px; position: absolute; left: 48px;"></span>
+						</div>
+				</div>
+			</div>
+			<div id="reviews-view">				
+				<div class="reviews-marker"></div>
+				<div id="reviews-section">
+					<div id="reviews-distribution">
+						<a href="#" onclick="displayBarChart(); return false;"><div id="reviews-barchart-heading" class="heading-selected">Reviews Distribution</div></a>
+						<div id="reviews-distribution-barchart"></div>
+						<a href="#" onclick="displayScatterPlot(); return false;"><div id="reviews-scatterplot-heading" class="heading-unselected">Reviews Over Time</div></a>
+						<div id="reviews-distribution-scatterplot"></div>						
+					</div>
+					<div id="reviews-comments"></div>
+					<a href="#" class="close-button" onclick="toggleReviewsView();"><img src = "{% static "images/close.png" %}"/></a>
+				</div>
+			</div>
+		</div>
+
+		<script src="{% static "js/leaflet.js" %}" ></script>
+		<script src="{% static "js/leaflet.markercluster-src.js" %}" ></script>
+		<script src="{% static "js/jquery.min.js" %}" ></script>
+		<script src="{% static "js/jquery-ui.min.js" %}" ></script>
+		<script src="{% static "js/d3.v3.js" %}" ></script>	
+		
+		<script src="{% static "js/home.js" %}" ></script>
+		<script src="{% static "js/menu.js" %}" ></script>
+		<script src="{% static "js/infoview.js" %}" ></script>
+		<script src="{% static "js/reviewsview.js" %}" ></script>
+		<script src="{% static "js/clusterstastics.js" %}" ></script>
+		<script src="{% static "js/mapUtilities.js" %}" ></script>
+		<script src="{% static "js/mapServices.js" %}" ></script>
+    </body>
+</html>
